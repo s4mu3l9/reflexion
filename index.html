@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animación Profesional</title>
+    <style>
+        /* Estilos CSS */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #282c34;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .animated-text {
+            font-size: 3rem;
+            color: #61dafb;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 2s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Estructura HTML -->
+    <div class="container">
+        <h1 class="animated-text">Esto también pasará</h1>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Agregar interacción para reiniciar la animación al hacer clic en el texto
+        document.querySelector('.animated-text').addEventListener('click', () => {
+            const text = document.querySelector('.animated-text');
+            text.style.animation = 'none';
+            void text.offsetWidth; // Trigger reflow
+            text.style.animation = null;
+        });
+    </script>
+</body>
+</html>
